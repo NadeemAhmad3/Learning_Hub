@@ -1,38 +1,33 @@
 @import "tailwindcss";
 
 :root {
-  /* --- Midnight Copper Palette (Light Mode) --- */
   --background: #ffffff;
-  --foreground: #1A1C1E; /* Obsidian - Grounded, deep text */
-  --primary: #A34F33;    /* Burnt Copper - Warm & energetic */
-  --secondary: #1A1C1E;  /* Obsidian - High-impact UI elements */
-  --muted: #F3F4F6;      /* Light cool gray - Balances the warmth */
+  --foreground: #1A1C1E; 
+  --primary: #A34F33;    
+  --secondary: #1A1C1E;  
+  --muted: #F3F4F6;      
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    /* --- Dark Mode Fallbacks --- */
     --background: #0a0a0a;
     --foreground: #ededed;
-    --primary: #A34F33;    /* Keeps the copper pop in dark mode */
-    --secondary: #272A2D;  /* Slightly lighter obsidian for separation */
-    --muted: #1f2937;      /* Darker muted tone for dark mode */
+    --primary: #A34F33;    
+    --secondary: #272A2D;  
+    --muted: #1f2937;      
   }
 }
 
 @theme inline {
-  /* Expose CSS variables to Tailwind v4 Utility Classes */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  
-  /* Your custom palette utilities (e.g., text-primary, bg-secondary) */
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
   --color-muted: var(--muted);
-  
-  /* Preserve your fonts */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter), sans-serif;
+  --font-mono: var(--font-mono), monospace;
 }
 
 body {
@@ -40,8 +35,6 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
-
-/* Optional: Custom text selection to match the copper vibe */
 ::selection {
   background-color: var(--primary);
   color: #ffffff;
