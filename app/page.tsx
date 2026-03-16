@@ -1,65 +1,47 @@
-import Image from "next/image";
+import CourseCard from './CourseCard';
+
+const courses = [
+  { title: "HTML", description: "The foundation of web pages. Learn tags, attributes, and semantic layouts.", count: "35", color: "bg-[#E34F26]", icon: "📁" },
+  { title: "CSS", description: "Design beautiful responsive websites using layouts, flexbox, and grid.", count: "52", color: "bg-[#1572B6]", icon: "🎨" },
+  { title: "JavaScript", description: "Bring life to your web pages with industrial-grade logic and interactions.", count: "128", color: "bg-[#F7DF1E]", icon: "📝" },
+  { title: "React", description: "Learn to build high-performance user interfaces with components and hooks.", count: "84", color: "bg-[#61DAFB]", icon: "⚛️" },
+  { title: "Next.js", description: "The production framework for React. SSR, SSG, and API routes.", count: "65", color: "bg-black", icon: "▲" },
+  { title: "TypeScript", description: "Enhance your JavaScript with static types for safer, robust development.", count: "48", color: "bg-[#3178C6]", icon: "⌨️" },
+  { title: "Tailwind CSS", description: "Build modern websites quickly with utility-first CSS styling.", count: "29", color: "bg-[#06B6D4]", icon: "✨" },
+  { title: "Python", description: "Dive into data science, scripting, and backend development with Python.", count: "112", color: "bg-[#3776AB]", icon: "🐍" },
+  { title: "PHP", description: "Master server-side scripting for building dynamic web applications.", count: "90", color: "bg-[#777BB4]", icon: "⚙️" },
+  { title: "SQL", description: "Manage and query your databases to power data-driven applications.", count: "42", color: "bg-[#4479A1]", icon: "🗄️" },
+];
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="p-8 md:p-12 lg:p-16 max-w-7xl mx-auto">
+      <header className="mb-12 text-center sm:text-left">
+        <h1 className="text-4xl md:text-5xl font-black text-secondary leading-tight mb-4 tracking-tight">
+          Welcome to <span className="text-primary underline decoration-4 underline-offset-8">LearnHub</span>
+        </h1>
+        <p className="text-lg text-gray-500 max-w-2xl font-medium">
+          Whether you're starting with your first line of code or mastering professional frameworks, we have the resources to help you reach your goals.
+        </p>
+      </header>
+      
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {courses.map((course) => (
+          <CourseCard key={course.title} {...course} />
+        ))}
+      </div>
+      
+      <footer className="mt-20 py-10 border-t border-gray-100 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="text-sm font-medium text-gray-400">
+          © 2026 LearnHub. Built for developers by developers.
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div className="flex gap-6">
+          <a href="#" className="text-xs font-bold text-gray-400 hover:text-primary transition-colors">Privacy</a>
+          <a href="#" className="text-xs font-bold text-gray-400 hover:text-primary transition-colors">Terms</a>
+          <a href="#" className="text-xs font-bold text-gray-400 hover:text-primary transition-colors">Support</a>
         </div>
-      </main>
+      </footer>
     </div>
   );
 }
+
